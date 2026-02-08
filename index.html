@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baibe BeE - Will You Be My Valentine? 💝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f9d1d1, #ffebee, #f9d1d1);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #5a3d5c;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(186, 84, 112, 0.2);
+            overflow: hidden;
+            border: 8px solid #ffb6c1;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #e91e63, #ff80ab);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2rem;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .heart:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { top: 60%; left: 85%; animation-delay: 1s; }
+        .heart:nth-child(3) { top: 10%; left: 80%; animation-delay: 2s; }
+        .heart:nth-child(4) { top: 70%; left: 15%; animation-delay: 3s; }
+        .heart:nth-child(5) { top: 40%; left: 5%; animation-delay: 4s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .love-letter {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            background-color: rgba(255, 245, 248, 0.7);
+            border-radius: 15px;
+            margin-right: 20px;
+            box-shadow: inset 0 0 10px rgba(233, 30, 99, 0.1);
+        }
+        
+        .love-letter h2 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 2px dashed #ffb6c1;
+            padding-bottom: 10px;
+        }
+        
+        .love-letter p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .memory-highlight {
+            background-color: rgba(255, 182, 193, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #e91e63;
+            font-style: italic;
+        }
+        
+        .interaction {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+        
+        .question {
+            font-size: 2.2rem;
+            color: #e91e63;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 18px 45px;
+            font-size: 1.8rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-yes {
+            background: linear-gradient(to right, #e91e63, #ff4081);
+            color: white;
+        }
+        
+        .btn-yes:hover {
+            background: linear-gradient(to right, #d81b60, #f50057);
+            transform: scale(1.08);
+            box-shadow: 0 12px 20px rgba(233, 30, 99, 0.3);
+        }
+        
+        .btn-no {
+            background: linear-gradient(to right, #bdbdbd, #9e9e9e);
+            color: #f5f5f5;
+            cursor: not-allowed;
+            opacity: 0.6;
+            position: relative;
+        }
+        
+        .btn-no::after {
+            content: "Nice try 😉";
+            position: absolute;
+            top: -40px;
+            background-color: #5a3d5c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .btn-no:hover::after {
+            opacity: 1;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 245, 248, 0.9);
+            color: #e91e63;
+            font-style: italic;
+            border-top: 2px dashed #ffb6c1;
+        }
+        
+        .hearts-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .hearts-container i {
+            color: #ff4081;
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .response-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .response-message h2 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .response-message p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .love-letter {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .question {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="heart">💝</div>
+            <div class="heart">💖</div>
+            <div class="heart">💗</div>
+            <div class="heart">💓</div>
+            <div class="heart">💞</div>
+            <h1>Baibe BeE</h1>
+            <p>Will you be my Valentine? 💝</p>
+        </div>
+        
+        <div class="content">
+            <div class="love-letter">
+                <h2>My Dearest Baibe BeE,</h2>
+                <p>From the moment our eyes first met, I knew my life would never be the same. There's a magic in the way you smile, a warmth in your touch that lingers on my skin long after we've parted. You've become my sunrise and my sunset, the quiet thought that brings a smile to my face in the middle of an ordinary day.</p>
+                
+                <div class="memory-highlight">
+                    I still remember that rainy afternoon when we got caught in the downpour, laughing uncontrollably as we ran for shelter. The way you looked at me with water dripping from your hair, your clothes clinging to your skin... in that moment, I saw forever in your eyes.
+                </div>
+                
+                <p>Our love has been a beautiful journey of discovery. I cherish the tender moments when we're wrapped in each other's arms, whispering secrets in the dark. But I also adore the fiery passion that ignites between us—those stolen glances across a crowded room that promise so much more to come, the way your touch sets my soul on fire, the taste of your lips that I crave like oxygen.</p>
+                
+                <div class="memory-highlight">
+                    Do you remember that weekend away, when we forgot about the world outside? The scent of your skin in the morning light, the way your laughter filled our little sanctuary, those intimate moments when time stood still and there was only us, completely lost in each other.
+                </div>
+                
+                <p>You are my greatest adventure, my safest harbor, and my most exhilarating dream. With you, I've discovered parts of myself I never knew existed—a capacity for love so deep it sometimes takes my breath away, a passion that feels both sacred and deliciously wicked.</p>
+                
+                <p>This Valentine's Day, I want to promise you more than just today. I want to promise you all my tomorrows. I want to fall asleep with you in my arms and wake up to your sleepy smile. I want to build a lifetime of memories, both sweetly romantic and passionately intimate.</p>
+                
+                <p>So my darling, my Baibe BeE, will you do me the extraordinary honor of being my Valentine?</p>
+                
+                <p style="text-align: right; font-weight: bold; margin-top: 30px;">
+                    Forever Yours,<br>
+                    The One Who Loves You Completely
+                </p>
+            </div>
+            
+            <div class="interaction">
+                <div class="question">Will you be my Valentine? 💝</div>
+                
+                <div class="buttons">
+                    <button class="btn btn-yes" id="yesBtn">
+                        <i class="fas fa-heart" style="margin-right: 10px;"></i> YES!
+                    </button>
+                    <button class="btn btn-no" id="noBtn">
+                        <i class="fas fa-times" style="margin-right: 10px;"></i> No
+                    </button>
+                </div>
+                
+                <div class="response-message" id="responseMessage">
+                    <h2>You've Made Me the Happiest! 💖</h2>
+                    <p>My darling Baibe BeE, you've just given me the most precious gift—the promise of your heart on this Valentine's Day. I can't wait to shower you with all the love and affection you deserve. Get ready for a day filled with romance, intimate moments, and memories we'll cherish forever. I love you more than words could ever express! </p>
+                    <div class="hearts-container">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with all the love in my heart for you, my Baibe BeE</p>
+            <div class="hearts-container">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const responseMessage = document.getElementById('responseMessage');
+            const header = document.querySelector('.header');
+            const heartsContainer = document.querySelector('.hearts-container');
+            
+            // Yes button functionality
+            yesBtn.addEventListener('click', function() {
+                // Show response message
+                responseMessage.style.display = 'block';
+                
+                // Create floating hearts animation
+                createHeartsAnimation();
+                
+                // Change header background
+                header.style.background = 'linear-gradient(to right, #4CAF50, #8BC34A)';
+                
+                // Change title
+                document.querySelector('.header h1').innerHTML = "She Said YES! 💝";
+                document.querySelector('.header p').innerHTML = "I'm the luckiest person in the world!";
+                
+                // Scroll to response message
+                responseMessage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Play a subtle heart pulse animation on the page
+                document.body.style.animation = 'none';
+                document.body.offsetHeight; // Trigger reflow
+                document.body.style.animation = 'pulse 2s';
+            });
+            
+            // No button functionality (inactive but with a fun message)
+            noBtn.addEventListener('click', function() {
+                // Briefly change the text to show it's inactive
+                const originalText = noBtn.innerHTML;
+                noBtn.innerHTML = '<i class="fas fa-lock" style="margin-right: 10px;"></i> Not an option';
+                noBtn.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    noBtn.innerHTML = originalText;
+                    noBtn.style.transform = 'scale(1)';
+                }, 1000);
+            });
+            
+            // Create floating hearts animation
+            function createHeartsAnimation() {
+                const colors = ['#ff4081', '#e91e63', '#f50057', '#ff80ab'];
+                
+                for (let i = 0; i < 20; i++) {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.style.position = 'fixed';
+                    heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    heart.style.zIndex = '9999';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.opacity = '0.9';
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Animate the heart
+                    const duration = Math.random() * 3 + 3;
+                    const horizontalMovement = Math.random() * 200 - 100;
+                    
+                    heart.animate([
+                        { transform: 'translateY(0) translateX(0)', opacity: 0.9 },
+                        { transform: `translateY(-100vh) translateX(${horizontalMovement}px)`, opacity: 0 }
+                    ], {
+                        duration: duration * 1000,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        document.body.removeChild(heart);
+                    }, duration * 1000);
+                }
+            }
+            
+            // Add some random floating hearts on page load
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createFloatingHeart();
+                }
+            }, 3000);
+            
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💝';
+                heart.style.position = 'fixed';
+                heart.style.fontSize = '24px';
+                heart.style.color = '#ffb6c1';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.zIndex = '1';
+                heart.style.pointerEvents = 'none';
+                heart.style.opacity = '0.7';
+                
+                document.body.appendChild(heart);
+                
+                const duration = Math.random() * 5 + 5;
+                
+                heart.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 0.7 },
+                    { transform: 'translateY(-100vh) rotate(180deg)', opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'linear'
+                });
+                
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        document.body.removeChild(heart);
+                    }
+                }, duration * 1000);
+            }
+        });
+    </script>
+</body>
+</html>
